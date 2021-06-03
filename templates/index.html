@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+            <!-- Begin Slider With Category Menu Area -->
+            <div class="slider-with-banner">
+                <div class="container">
+                    <div class="row">
+                        <!-- Begin Category Menu Area -->
+                        <div class="col-lg-3">
+                            <!--Category Menu Start-->
+                            <div class="category-menu">
+                                <div class="category-heading">
+                                    <h2 class="categories-toggle"><span>categories</span></h2>
+                                </div>
+                                <div id="cate-toggle" class="category-menu-list">
+                                    <ul>
+                                        {% for p in category %}
+                                        <li><a href="{% url 'ProductApp:category-product' id=p.id slug=p.slug %}">{{ p.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Category Menu End-->
+                        </div>
+                        <!-- Category Menu Area End Here -->
+                        <!-- Begin Slider Area -->
+                        <div class="col-lg-9">
+                            <div class="slider-area pt-sm-30 pt-xs-30">
+                                <div class="slider-active owl-carousel">
+                                    <!-- Begin Single Slide Area -->
+                                    {% for p in category %}
+                                    <div class="single-slide align-center-left animation-style-01 bg">
+                                        <img src="{{ p.imageurl }}">
+                                        <div class="slider-content">
+                                            <h2>{{ p.title }}</h2>
+                                            <h3>Starting at <span>$1599.00</span></h3>
+                                            <div class="default-btn slide-btn">
+                                                <a class="links" href="{% url 'ProductApp:category-product' id=p.id slug=p.slug %}">Shop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- Single Slide Area End Here -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slider Area End Here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Slider With Category Menu Area End Here -->
+
+
+
+            <!-- Begin Product Area -->
+            <div class="product-area pt-60 pb-50">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="li-product-tab">
+                                <ul class="nav li-product-menu">
+                                   <li><a class="active" data-toggle="tab" href="#li-new-product"><span>Latest</span></a></li>
+                                   <li><a data-toggle="tab" href="#li-bestseller-product"><span>Popular</span></a></li>
+                                   <li><a data-toggle="tab" href="#li-featured-product"><span>Featured</span></a></li>
+                                </ul>
+                            </div>
+                            <!-- Begin Li's Tab Menu Content Area -->
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div id="li-new-product" class="tab-pane active show" role="tabpanel">
+                            <div class="row">
+                                <div class="product-active owl-carousel">
+                                    {% for p in latest_product %}
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="{% url 'ProductApp:singe-product' id=p.id %}">
+                                                    <img src="{{ p.imageurl }}" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">{{ p.category }}</a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name" href="{% url 'ProductApp:singe-product' id=p.id %}">{{ p.title }}</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">{{ p.new_price }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="{% url 'OrderApp:add_to_cart' id=p.id %}">Add to cart</a></li>
+                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div id="li-bestseller-product" class="tab-pane" role="tabpanel">
+                            <div class="row">
+                                <div class="product-active owl-carousel">
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="single-product.html">
+                                                    <img src="{% static '' %}images/product/large-size/12.jpg" alt="Li's Product Image">
+                                                </a>
+                                                <span class="sticker">New</span>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="shop-left-sidebar.html">Graphic Corner</a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name" href="single-product.html">Accusantium dolorem1</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">$46.80</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="li-featured-product" class="tab-pane" role="tabpanel">
+                            <div class="row">
+                                <div class="product-active owl-carousel">
+                                    {% for p in featured_product %}
+                                    <div class="col-lg-12">
+                                        <!-- single-product-wrap start -->
+                                        <div class="single-product-wrap">
+                                            <div class="product-image">
+                                                <a href="{% url 'ProductApp:singe-product' id=p.id %}">
+                                                    <img src="{{ p.imageurl }}" alt="Li's Product Image">
+                                                </a>
+                                            </div>
+                                            <div class="product_desc">
+                                                <div class="product_desc_info">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="#">{{ p.category }}</a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name" href="{% url 'ProductApp:singe-product' id=p.id %}">{{ p.title }}</a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price">{{ p.new_price }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="add-actions">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="{% url 'OrderApp:add_to_cart' id=p.id %}">Add to cart</a></li>
+                                                        <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                        <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- single-product-wrap end -->
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Area End Here -->
+
+
+
+
+
+            <!-- Begin Li's Main Blog Page Area -->
+            <div class="li-main-blog-page pt-60 pb-55">
+                <div class="container">
+                    <h4>Blog</h4>
+                    <div class="row">
+                        <!-- Begin Li's Main Content Area -->
+                        <div class="col-lg-12">
+                            <div class="row li-main-content">
+                                {% for p in latest_blog %}
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="li-blog-single-item pb-25">
+                                        <div class="li-blog-banner">
+                                            <a href="blog-details-left-sidebar.html"><img class="img-full" src="{{ p.imageurl }}" alt=""></a>
+                                        </div>
+                                        <div class="li-blog-content">
+                                            <div class="li-blog-details">
+                                                <h3 class="li-blog-heading pt-25"><a href="blog-details-left-sidebar.html">{{ p.title }}</a></h3>
+                                                <div class="li-blog-meta">
+                                                    <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
+                                                    <a class="comment" href="#"><i class="fa fa-comment-o"></i> 3 comment</a>
+                                                    <a class="post-time" href="#"><i class="fa fa-calendar"></i>{{ p.created_at }}</a>
+                                                </div>
+                                                <p>{{ p.blog_short }}</p>
+                                                <a class="read-more" href="blog-details-left-sidebar.html">Read More...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!-- Li's Main Content Area End Here -->
+                    </div>
+                </div>
+            </div>
+            <!-- Li's Main Blog Page Area End Here -->
+
+
+
+{% endblock body %}

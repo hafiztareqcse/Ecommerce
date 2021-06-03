@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Morphism login form</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="shortcut icon"
+      href="https://aomineDev.github.io/ico/aomine.ico"
+    />
+  </head>
+  <body>
+    <section class="login-section">
+      <div class="login-color"></div>
+      <div class="login-color"></div>
+      <div class="login-color"></div>
+      <div class="login-box">
+        <div class="login-square" style="--i: 0"></div>
+        <div class="login-square" style="--i: 1"></div>
+        <div class="login-square" style="--i: 2"></div>
+        <div class="login-square" style="--i: 3"></div>
+        <div class="login-square" style="--i: 4"></div>
+        <div class="login-container">
+          <div class="login-form">
+            <h2>Login Form</h2>
+            <form action="">
+              <div class="login-input-box">
+                <input type="text" placeholder="Username" />
+              </div>
+              <div class="login-input-box">
+                <input type="password" placeholder="Password" />
+              </div>
+              <div class="login-input-box">
+                <input type="submit" value="Login" />
+              </div>
+              <p class="login-forget">
+                <a href="#!">Forget password ?</a>
+              </p>
+              <p class="login-forget">
+                Don't have an account ? <a href="#!">Sign up</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+
+
+    <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12 mb-30">
+                            <!-- Login Form s-->
+                            <form action="{% url 'UserApp:login' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="login-form">
+                                    <h4 class="login-title">Login</h4>
+                                    <div class="row">
+                                        <div class="col-md-12 col-12 mb-20">
+                                            <label>Username</label>
+                                            <input class="mb-0" type="text" name="username" placeholder="Username">
+                                        </div>
+                                        <div class="col-12 mb-20">
+                                            <label>Password</label>
+                                            <input class="mb-0" type="password" name="password" placeholder="Password">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                                <input type="checkbox" id="remember_me">
+                                                <label for="remember_me">Remember me</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
+                                            <a href="#"> Forgotten passward?</a>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button class="register-button mt-0">Login</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+.login-title {
+	font-size: 20px;
+	line-height: 23px;
+	text-transform: capitalize;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+.login-form {
+  background-color: #ffffff;
+  padding: 30px;
+  -webkit-box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.1); }
+  .login-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    text-transform: capitalize; }
+  .login-form .nice-select {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #999999;
+    border-radius: 0;
+    line-height: 23px;
+    padding: 10px 20px;
+    font-size: 14px;
+    height: 45px;
+    color: #7a7a7a;
+    margin-bottom: 15px; }
+    .login-form .nice-select::after {
+      width: 6px;
+      height: 6px;
+      border-width: 1px;
+      right: 20px;
+      border-color: #7a7a7a; }
+    .login-form .nice-select .current {
+      color: #7a7a7a;
+      display: block;
+      line-height: 23px; }
+    .login-form .nice-select .list {
+      width: 100%; }
+  .login-form input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #999999;
+    border-radius: 0;
+    line-height: 23px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #7a7a7a;
+    margin-bottom: 15px; }
+    .login-form input[type="checkbox"] {
+      width: auto; }
+  .login-form .check-box {
+    float: left;
+    margin-right: 70px; }
+    .login-form .check-box:last-child {
+      margin-right: 0; }
+    .login-form .check-box input[type="checkbox"] {
+      display: none; }
+      .login-form .check-box input[type="checkbox"] + label {
+        position: relative;
+        padding-left: 30px;
+        line-height: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #363f4d;
+        margin: 0; }
+        .login-form .check-box input[type="checkbox"] + label::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 20px;
+          height: 20px;
+          display: block;
+          border: 2px solid #999999;
+          content: "";
+          -webkit-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s; }
+        .login-form .check-box input[type="checkbox"] + label::after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: block;
+          content: "\f00c";
+          font-family: Fontawesome;
+          font-size: 12px;
+          line-height: 20px;
+          opacity: 0;
+          color: #363f4d;
+          width: 20px;
+          text-align: center;
+          -webkit-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s; }
+      .login-form .check-box input[type="checkbox"]:checked + label::before {
+        border: 2px solid #363f4d; }
+      .login-form .check-box input[type="checkbox"]:checked + label::after {
+        opacity: 1; }
